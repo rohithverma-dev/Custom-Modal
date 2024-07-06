@@ -1,24 +1,85 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { FaWindowClose } from "react-icons/fa";
 
 function App() {
+  const [modal, setModal] = useState(false);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setModal(!modal)
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className="heading"> Custom Modal </h1>
+
+      {modal && <div className="modal">
+        <div onClick={() => setModal(!modal)} className="overlay"></div>
+        <div className="modal-content">
+          <h1>Register</h1>
+          <FaWindowClose onClick={() => setModal(!modal)} className="close-btn" style={{ color: "#1C0453", backgroundColor: "white" }} />
+          <form action="" onSubmit={(e) => handleFormSubmit(e)}>
+            <div className="input-field">
+              <div className="">
+                <label htmlFor="name">Name</label>
+              </div>
+              <input required type="text" placeholder="Enter Your Name" name="" id="name" />
+            </div>
+            <div className="input-field">
+              <div className="">
+                <label htmlFor="email">Email</label>
+              </div>
+              <input required type="email" placeholder="Enter Your Email" name="" id="email" />
+            </div>
+            <div className="btns">
+              <button onClick={() => setModal(!modal)} >Cancel</button>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>}
+
+
+      <div className="container">
+        <div className="open-close">
+          <button onClick={()=>setModal(!modal)} >{modal ? <span style={{color:'aqua'}} >Close</span>:  <span style={{color:'#3bffef'}} >Open</span> }</button>
+        </div>
+
+        deleniti! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Dolore sunt facere voluptatem nemo voluptate cumque perferendis ea
+        inventore debitis tempore <br /> <br /> <br /> <br /> <br /> deleniti
+        dolores laudantium officia, non sit quisquam. Voluptates quas iste
+        molestias deleniti? Dolor nihil, quibusdam placeat quod laborum unde
+        nisi praesentium tenetur nam modi sapiente quidem, magnam quas dolorem
+        magni. Voluptatibus architecto odio sequi expedita vitae assumenda.
+        Culpa eos officiis aut ab, provident <br /> <br /> <br /> <br /> <br />
+        alias? Corrupti molestias modi eos blanditiis doloremque aut. Sit
+        voluptates, porro explicabo omnis laborum ducimus non fuga tempora
+        voluptate quaerat incidunt eligendi perspiciatis quo perferendis atque
+        facere, labore molestias nisi quae aliquid hic dolor a veniam. Voluptas?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
+        vero illo facere provident suscip\
+        <br /> <br /> <br /> <br /> <br />
+        consectetur adipisicing elit. Delectus, excepturi ea. Pariatur possimus
+        corrupti harum unde aperiam, id distinctio, aut delectus exercitationem
+        voluptas autem, cupiditate veniam sed eaque velit nesciunt neque! In
+        illum doloribus accusantium. Quasi autem soluta enim corrupti vel dicta
+        reprehenderit alias error laboriosam nihil saepe laborum hic nesciunt,
+        totam provident at eveniet odit dolores repellat. Labore odit iusto nam
+        dignissimos vero repellat atque voluptatibus. Cumque excepturi <br />
+        <br /> <br /> <br /> <br /> , quos voluptates eaque tempore aliquam
+        dolorem <br /> Quia, quaerat fugiat. Odio, similique. Provident eaque
+        maiores natus officia minus nisi voluptates, harum nobis, libero quod
+        aspernatur nostrum praesentium consequuntur sequi autem deserunt? Nisi
+        iste vel aperiam illum eos rem minima eaque. Eaque vero minus, dolores
+        aspernatur officia sed illo itaque nihil unde saepe voluptatum adipisci
+        culpa, assumenda molestias <br /> <br /> <br /> <br /> <br /> modi!
+        Molestias blanditiis, laborum adipisci, illo omnis facilis laudantium +
+        <br />t voluptatibus, impedit, iste sunt cupiditate iusto saepe
+        voluptates ducimus quae voluptatum cumque, assumenda alias
+      </div>
+    </>
   );
 }
 
